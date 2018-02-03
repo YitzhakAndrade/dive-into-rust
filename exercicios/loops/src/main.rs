@@ -1,5 +1,5 @@
-fn main() { 
-    /* pode deixar vazio */
+fn main() {
+    println!("{}", 77_031);
 }
 
 /// Dado um número positivo x:
@@ -7,7 +7,17 @@ fn main() {
 ///     Se x é ímpar, faça x igual a 3x + 1 e repita.
 /// Retorne quantas vezes é necessário repetir o processo até que x = 1.
 fn collatz(mut x: u32) -> u32 {
+    if x == 1 {
+        return 0;
+    }
 
+    if x % 2 == 0 {
+        x = x / 2;
+        return collatz(x) + 1;
+    } else {
+        x = x * 3 + 1;
+        return collatz(x) + 1;
+    }
 }
 
 
